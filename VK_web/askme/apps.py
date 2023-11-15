@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class VkConfig(AppConfig):
+class AskmeConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'VK'
+    name = 'askme'

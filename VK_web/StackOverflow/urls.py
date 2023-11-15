@@ -1,5 +1,5 @@
 """
-URL configuration for VK_web project.
+URL configuration for StackOverflow project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -16,7 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include
+from askme.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('askme.urls'))
 ]
+
+handler404 = page_not_found
