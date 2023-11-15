@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>StackOverflow</title>
+    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <div class="p-3 bg-dark text-white">
+        <div class="container-fluid m-lg-1">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <img src="{% static "img/Stack-Overflow.jpg" %}" class="logo-img col-2" alt="king">
+                    StackOverflow
+                </a>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+                    <li><a href="{% url 'home' %}" class="nav-link px-2 text-white">Вопросы</a></li>
+                    <li><a href="{% url 'ask-question' %}" class="nav-link px-2 text-white">Задать вопрос</a></li>
+                </ul>
+
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control form-control-dark text-bg-dark"
+                           placeholder="Введите заголовок"
+                           aria-label="Search">
+                </form>
+
+                <div class="text-end">
+                    <a type="button" href="{% url 'login' %}"
+                       class="btn btn-outline-light me-2">Войти</a>
+                    <a type="button" href="{% url 'signup' %}" class="btn btn-primary">Регистрация</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</head>
+
+<body>
+<main class="flex-shrink-0">
+    <div class="container">
+        <div class="row">
+            <div class="left-column mt-5 col-9">
+                {% block content %}{% endblock %}
+            </div>
+
+            <div class="right-column mt-5 col-3">
+                <div class="popular_tags">
+                    <h2 class="mt-2">Popular Tags</h2>
+                    <div class="links d-flex flex-row">
+                        <a href="#">Swift</a>
+                    </div>
+                    <div class="links d-flex flex-row">
+                        <a href="#">Ios</a>
+                    </div>
+                    <div class="links d-flex flex-row">
+                        <a href="#">UIKit</a>
+                    </div>
+                </div>
+
+                <div class="best_members">
+                    <h2 class="mt-4">Popular languages</h2>
+                    <ol class="list-unstyled">
+                        <li><a href="#">Swift</a></li>
+                        <li><a href="#">GoLang</a></li>
+                        <li><a href="#">C++</a></li>
+                        <li><a href="#">Python</a></li>
+                        <li><a href="#">Java</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

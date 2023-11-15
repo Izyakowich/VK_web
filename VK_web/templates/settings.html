@@ -1,0 +1,30 @@
+{% extends 'inc/auth_base.html' %}
+
+{% block content %}
+    <div class="col-11">
+        <h1>Settings:</h1>
+        <hr/>
+        <form>
+            <label class="link-danger text-wrong-password">Просто текст ошибки</label>
+            <div class="mb-3 row">
+                <label for="login" class="form-label">Логин</label>
+                <input type="text" class="form-control" id="login" placeholder="Enter your login here">
+            </div>
+            <div class="mb-3 row">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" placeholder="Enter your email here">
+            </div>
+            <div class="mb-3 row">
+                <label for="nickname" class="form-label">Nickname</label>
+                <input type="text" class="form-control" id="nickname" placeholder="Enter your nickname here">
+            </div>
+            <div class="mb-3 row">
+                <label for="avatar" class="form-label">Загрузить аватар</label>
+                <input type="file" class="form-control" id="avatar"
+                       placeholder="Enter your password here again">
+            </div>
+            <button type="submit" class="btn btn-outline-dark btn-sm btn-form-submit mb-4 mt-2">Сохранить
+            </button>
+        </form>
+    </div>
+{% endblock %}
