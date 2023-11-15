@@ -1,0 +1,27 @@
+{% extends 'inc/base.html' %}
+
+{% block content %}
+    <div class="new-question-page left-column mt-5 col-9">
+        <div class="col-11">
+            <h1>New Question</h1>
+            <hr/>
+            <label class="link-danger text-wrong-password">Вводите теги через запятую!</label>
+            <form>
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" placeholder="Ask a question">
+                </div>
+                <div class="mb-3">
+                    <label for="text" class="form-label">Text</label>
+                    <textarea class="form-control" id="text" rows="3" placeholder="describe the question"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="tags" class="form-label">Tags</label>
+                    <input type="text" class="form-control" id="tags" placeholder="tag1, tag2">
+                </div>
+                <button type="submit" class="btn btn-outline-dark btn-sm btn-form-submit mb-4 mt-2">Отправить
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
