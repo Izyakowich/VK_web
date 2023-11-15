@@ -1,0 +1,46 @@
+{% load static %}
+
+<div class="question-item mt-4 col-11">
+    <div class="question-body row">
+        <div class="question-left col-2">
+            <div class="question-avatar">
+                <img src="{{ question.author_img }}"
+                     class="rounded avatar-img"
+                     alt="user avatar"
+                >
+            </div>
+            <div class="col-12 mt-3">
+                <div class="btn-group d-flex justify-content-between" role="group" aria-label="Rating">
+                    <div class="">
+                        <button type="button" class="btn-minus btn btn-outline-dark btn-sm">-</button>
+                    </div>
+                    <div class="">
+                        {{ question.rating }}
+                    </div>
+                    <div class="">
+                        <button type="button" class="btn-plus btn btn-outline-dark btn-sm">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="question-right col-9">
+            <div class="question-right-text">
+                <h3><a href="{% url 'question' 2 %}">{{ question.title }}</a></h3>
+                <p>{{ question.content }}</p>
+            </div>
+            <div class="question-right-footer row">
+                <div class="col-3">
+                    <a href="/question/1">Answers (3)</a>
+                </div>
+                <div class="col-8">
+                    <p>
+                        Tags:
+                        <a href="/tag/python">Python</a>
+                        <a href="/tag/web">Web</a>
+                        <a href="/tag/html">HTML</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

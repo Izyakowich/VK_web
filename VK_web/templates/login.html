@@ -1,0 +1,23 @@
+{% extends 'inc/base.html' %}
+
+{% block content %}
+    <div class="col-11">
+        <h1>Вход</h1>
+        <hr/>
+        <form>
+            <label class="link-danger text-wrong-password">Извините, пароль неверный!</label>
+            <div class="mb-3 row">
+                <label for="login" class="form-label">Логин</label>
+                <input type="text" class="form-control" id="login" placeholder="Enter your login here">
+            </div>
+            <div class="mb-3 row">
+                <label for="password" class="form-label">Пароль</label>
+                <input type="password" class="form-control" id="password"
+                       placeholder="Enter your password here">
+            </div>
+            <button type="submit" class="btn btn-outline-dark btn-sm btn-form-submit mb-4 mt-2">Войти
+            </button>
+        </form>
+        <a href="{% url 'signup' %}">Создать новый аккаунт</a>
+    </div>
+{% endblock %}
