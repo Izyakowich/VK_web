@@ -1,0 +1,107 @@
+main > .container {
+  padding: 60px 15px 0;
+}
+
+.question, .answer {
+    height: 220px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.question-avatar, .answer-avatar {
+    height: 150px;
+    width: 150px;
+}
+.question-avatar > img, .answer-avatar > img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.question-text, .answer-text {
+  margin-bottom: 10px;
+  height: 110px;
+}
+
+#info-user {
+    width: auto;
+}
+
+#avatar-info-user {
+  float: left;
+  width: 50px;
+  height: 50px;
+  margin-top: 15px;
+  object-fit: cover;
+}
+#info-user > div {
+  margin-left: 100px;
+}
+
+#info-user > div > a {
+  text-decoration: none;
+  margin-right: 50px;
+}
+
+.tags-question {
+  display: flexbox;
+  width: 60%;
+  margin-left: 20%
+}
+
+.tags-question > a {
+  margin-right: 20px;
+}
+
+.members {
+  margin-left: 20%;
+  display: block;
+}
+
+.button-like {
+    padding: 0;
+    border: none;
+    background: none;
+    width: 30px;
+    height: 30px;
+    margin-top: 5%;
+}
+.button-like > img{
+    width: 100%;
+    height: 100%;
+}
+
+.correct {
+  margin-top: 25px;
+  margin-right: 10px;
+}
+
+#setting-avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.pole {
+  margin-bottom: 20px;
+}
+
+#wrong_password {
+    color: red;
+}
+
+#current {
+    background: rgba(13, 110, 253, 0.4);
+}
+
+.div-valuation {
+    margin-top: 10px;
+    display: flex;
+}
+.valuation {
+    margin-left: 15px;
+}

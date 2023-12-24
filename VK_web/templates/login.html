@@ -1,23 +1,31 @@
-{% extends 'inc/base.html' %}
+{% extends "inc/base.html" %}
+{% load static %}
+{% load bootstrap5 %}
+
+
+{% block info-user %}
+  {% include "inc/not_authorized_user.html" %}
+{% endblock %}
+
+{% block first-row %}
+  <h1 class="mt-5" style="display: inline; margin-right: 30px">Log in</h1>
+{% endblock %}
 
 {% block content %}
-    <div class="col-11">
-        <h1>Вход</h1>
-        <hr/>
-        <form>
-            <label class="link-danger text-wrong-password">Извините, пароль неверный!</label>
-            <div class="mb-3 row">
-                <label for="login" class="form-label">Логин</label>
-                <input type="text" class="form-control" id="login" placeholder="Enter your login here">
-            </div>
-            <div class="mb-3 row">
-                <label for="password" class="form-label">Пароль</label>
-                <input type="password" class="form-control" id="password"
-                       placeholder="Enter your password here">
-            </div>
-            <button type="submit" class="btn btn-outline-dark btn-sm btn-form-submit mb-4 mt-2">Войти
-            </button>
-        </form>
-        <a href="{% url 'signup' %}">Создать новый аккаунт</a>
+
+<div style="width: 50%">
+  <form class="needs-validation" novalidate="" method="post" action="{% url 'login' %}?continue={{ form.continue_url }}" name="login">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <div class="row" style="margin-top: 20px">
+      <div class="col-5">
+        <button class="btn btn-outline-success" type="submit">Login</button>
+      </div>
     </div>
+
+    <hr class="my-3">
+    <div class="row"><div class="col-2"></div><div class="col-5"><a href="{% url 'signup' %}">Create new account</a></div></div>
+  </form>
+</div>
+
 {% endblock %}

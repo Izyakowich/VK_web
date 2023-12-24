@@ -1,0 +1,22 @@
+{% load static %}
+
+<div id="answer-{{ answer.id }}" class="answer" style="height: auto">
+    <div class="row">
+        <div class="col-3">
+        <div class="answer-avatar">
+            <img src="{{ answer.author.avatar.url }}" alt="avatar">
+        </div>
+
+      {% include "inc/valuation_for_answer.html" %}
+
+        </div>
+        <div class="col-8">
+        <div style="min-height: 140px">
+         {{ answer.text }}
+        </div>
+        <div class="row">
+            <p><input class="correct" type="checkbox" name="correct" value="true" {% if answer.correct %} checked {% endif %}>Correct!</p>
+        </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+{% extends "inc/base.html" %}
+{% load static %}
+{% load bootstrap5 %}
+
+{% block info-user %}
+    {% if user_data %}
+        {% include "inc/is_authorized_user.html" %}
+    {% else %}
+        {% include "inc/not_authorized_user.html" %}
+    {% endif %}
+{% endblock %}
+
+{% block first-row %}
+  <h1 class="mt-5" style="display: inline; margin-right: 30px">New question</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post" action="{% url 'ask' %}" name="ask">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-9">
+      <button class="btn btn-outline-success" type="submit">Ask</button>
+    </div>
+  </div>
+</form>
+{% endblock %}
+
+
+
+

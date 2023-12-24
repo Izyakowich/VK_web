@@ -1,20 +1,59 @@
-{% extends 'inc/base.html' %}
+{% extends "inc/base.html" %}
 {% load static %}
+{% load bootstrap5 %}
+
+
+{% block info-user %}
+    {% if user_data %}
+        {% include "inc/is_authorized_user.html" %}
+    {% else %}
+        {% include "inc/not_authorized_user.html" %}
+    {% endif %}
+{% endblock %}
+
 
 {% block content %}
-    {% include 'question_detail.html' %}
-    <hr/>
-    {% for answer in answers %}
-        {% include 'answer_item.html' %}
-    {% endfor %}
-    {% include 'pagination.html' %}
-    <hr class="mt-5"/>
+  <div class="question" style="border: 2px; height: auto">
+  <div class="row">
+    <div class="col-3">
+      <div class="question-avatar">
+        <img src="{{ question.author.avatar.url }}" alt="avatar">
+      </div>
 
-    <div class="new-answer row col-11">
-        <label class="visually-hidden" for="NewQuestionText">New answer for the question</label>
-        <textarea class="form-control" id="NewQuestionText" rows="6" placeholder="Your answer"></textarea>
-        <div class="new-answer mt-3 mb-3">
-            <button class="btn btn-outline-dark btn-sm" type="submit">Answer</button>
-        </div>
+      {% include "inc/valuation.html" %}
+
     </div>
+    <div class="col-8">
+      <h2> {{ question.title }} </h2>
+      <div>
+          {{ question.text }}
+      </div>
+      <div style="margin-top: 15px">
+        Tags
+        {% for tag in question.tags.all %} <a href="{% url 'tag' tag %}">{{ tag }}</a> {% endfor %}
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <hr class="my-4">
+
+  <!--          ответы -->
+  
+  {% for answer in page_obj %}
+    {% include "inc/answer_item.html" %}
+  {% endfor %}
+
+  {% include "inc/paginator.html" %}
+
+  <!-- add answer-->
+  <hr class="my-4">
+
+  <form method="post" action="#" style="margin-bottom: 10px" name="question">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+<!--    <textarea class="form-control me-2" type="search" rows="8" name="answer" style="resize: none; width: 100%; margin-bottom: 20px" placeholder="Enter your answer here..."></textarea>-->
+    <button class="btn btn-outline-success" type="submit">Answer</button>
+  </form>
+
 {% endblock %}

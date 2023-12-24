@@ -1,0 +1,12 @@
+{% load static %}
+
+<div class="div-valuation">
+  <div class="valuation like">
+    <button class="button-like"><img src="{% static 'img/like.svg' %}"></button>
+    <span>{{ question.count_like }}</span>
+  </div>
+  <div class="valuation dislike">
+    <button class="button-like"><img src="{% static 'img/dislike.svg' %}"></button>
+    <span>{{ question.count_dislike }}</span>
+  </div>
+</div>
